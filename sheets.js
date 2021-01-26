@@ -1,7 +1,7 @@
 exports.BatchWriter = async (data, formData, sheetIndexes) => {
 	console.log('appending');
 	let date = new Date();
-	let ate = `${date.getYear()}-${
+	let ate = `${date.getFullYear()}-${
 		date.getMonth() + 1
 	}-${date.getDate()}::${date.getHours()}:${date.getMinutes()}`;
 	const sheets = await data;

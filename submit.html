@@ -11,6 +11,38 @@
 	<style>
 		.form-g {
 			padding: 2rem;
+			margin-top: 10px;
+			background-color: rgb(167, 217, 217);
+			border-radius: 20px;
+		}
+
+		body {
+			background-color: rgb(30, 56, 89);
+		}
+
+		.sub {
+			border: 4px solid rgb(30, 56, 89);
+			border-radius: 1000px;
+			color: rgb(30, 56, 89);
+			font-size: 1.2em;
+			font-weight: bold;
+
+		}
+
+		.sub:hover {
+			background-color: rgb(30, 56, 89);
+			color: rgb(167, 217, 217);
+		}
+
+		.text {
+			color: rgb(30, 56, 89);
+			font-size: 1.2em;
+			font-weight: bold;
+		}
+
+		.heading {
+			color: rgb(167, 217, 217);
+			text-align: center;
 		}
 	</style>
 </head>
@@ -31,38 +63,73 @@
 
 	</script>
 	<div class="container-fluid">
-		<form class="col-12" action="/submit" method="POST">
+		<div class="row">
+			<div class="col-12 heading">
+				<h2>General Championship Registration:</h2>
+			</div>
+		</div>
+		<form class="col-12 col-md-8 offset-md-2" action="/submit" method="POST">
 
-			<div class="text-white bg-secondary form-g">
+			<div class="form-g">
 				<div class="m-3 form-row" id="sn">
-					<label class="col-2 col-form-label" for="rollNo" id="rollNo"> Roll No(20CSO1001):</label>
-					<input class="form-control col-sm-4" type="text" name="rollNo" required />
+					<label class="col-12 col-md-5 offset-md-1 col-form-label text" for="rollNo" id="rollNo"> Roll
+						No(20CSO1001):</label>
+					<input class="form-control col-md" type="text" name="rollNo" required />
 				</div>
 
 				<div class="m-3 form-row">
-					<label class="col-2 col-form-label" for="name" id="name">Full Name :</label>
-					<input class="form-control col-sm-4" type="text" name="name" required />
+					<label class="col-12 col-md-5 offset-md-1 col-form-label text" for="name" id="name">Full Name
+						:</label>
+					<input class="form-control col-md" type="text" name="name" required />
 				</div>
 				<div class="m-3 form-row">
-					<label class="col-2 col-form-label" for="email" id="email">Institute Email :</label>
-					<input class="form-control col-sm-4" type="email" name="email" required />
+					<label class="col-12 col-md-5 offset-md-1 col-form-label text" for="email" id="email">Institute
+						Email :</label>
+					<input class="form-control col-md" type="email" name="email" required />
 				</div>
 				<div class="m-3 form-row">
-					<label class="col-2 col-form-label" for="phoneNo" id="phoneNo">Phone no (10 digit):</label>
-					<input class="form-control col-sm-4" type="tel" name="phoneNo" required />
+					<label class="col-12 col-md-5 offset-md-1 col-form-label text" for="phoneNo" id="phoneNo">Phone no
+						(10 digit):</label>
+					<input class="form-control col-md type=" tel" name="phoneNo" required />
 				</div>
+				<div class="form-group">
+					<label class="col-12 col-md-5 offset-md-1 col-form-label text" for="name" id="name">Events:</label>
+					<label class="col-form-label col-12 col-md-5 text" for="name" id="name">Technical
+						Events:</label><br>
+					<div class="col-12 offset-md-6">
+						<input type="checkbox" name="options" value="A"> Graphic Design<br>
+						<input type="checkbox" name="options" value="B"> Design Marathon (‘Rebranding’)<br>
+						<input type="checkbox" name="options" value="C"> Webathon<br>
+						<input type="checkbox" name="options" value="D"> Competitive Coding<br>
+						<input type="checkbox" name="options" value="E"> Hackathon<br>
+						<input type="checkbox" name="options" value="F"> Semester long problem solving<br>
+						<label class="col-form-label text" for="name" id="name">Sports Events:</label><br>
+						<input type="checkbox" name="options" value="G"> Chess<br>
+						<input type="checkbox" name="options" value="H"> Fitness Challenge<br>
+						<input type="checkbox" name="options" value="I"> CSGO<br>
+						<input type="checkbox" name="options" value="J"> Valorant<br>
+						<label class="col-form-label text" for="name" id="name">Cultural Events:</label><br>
+						<input type="checkbox" name="options" value="K"> Hindi Story Writing Competition: Vrittant<br>
+						<input type="checkbox" name="options" value="L"> Hindi Poetry Slam: Akshar<br>
+						<input type="checkbox" name="options" value="M"> Art competition<br>
+						<input type="checkbox" name="options" value="N"> Curtains Up<br>
+						<input type="checkbox" name="options" value="O"> Online Photography Competition<br>
+						<input type="checkbox" name="options" value="P"> The Wikipedia Game: Wiki-tracing<br>
+						<input type="checkbox" name="options" value="Q"> Devil's Advocate: "Accusio Salvare”<br>
+						<input type="checkbox" name="options" value="R"> Sports and Entertainment Quiz<br>
+						<input type="checkbox" name="options" value="S"> General Quiz<br>
+						<input type="checkbox" name="options" value="T"> Question making<br>
+						<input type="checkbox" name="options" value="U"> Solo Singing Competition<br>
+						<input type="checkbox" name="options" value="V"> Solo Instrumental Competition<br>
+						<input type="checkbox" name="options" value="W"> Trailer Making Competition: Re-Cut<br>
+						<input type="checkbox" name="options" value="X"> Solo Dance<br>
+					</div>
+				</div>
+				<button class="col-4 offset-4 col-md-3 offset-md-1 btn sub" type="Submit" id="checkBtn">Submit</button>
+
 			</div>
 
-			<div class="text-white form-group bg-info form-g">
-				<input type="checkbox" name="options" value="A"> A<br>
-				<input type="checkbox" name="options" value="B"> B<br>
-				<input type="checkbox" name="options" value="C"> C<br>
-				<input type="checkbox" name="options" value="D"> D<br>
-				<input type="checkbox" name="options" value="E"> E<br>
-				<input type="checkbox" name="options" value="F"> F<br>
-				<input type="checkbox" name="options" value="G"> G<br>
-			</div>
-			<button class="btn btn-dark" type="Submit" id="checkBtn">Submit</button>
+
 
 		</form>
 	</div>
