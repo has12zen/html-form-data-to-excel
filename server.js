@@ -2,6 +2,8 @@ const express = require('express'); //step 01 : import express module
 const router = express.Router(); //step 02 : create router object
 const app = express(); //step 03 : create express app
 const bodyParser = require('body-parser');
+const xss = require('xss-clean');
+const rateLimit = require('express-rate-limit');
 const { BatchWriter } = require('./sheets');
 
 if (process.env.NODE_ENV !== 'production') {
@@ -14,8 +16,16 @@ const { gsrun } = require('./google/gsRun');
 gClientAuthorize(gClient);
 
 const sheetIndexes = JSON.parse(process.env.SHEET_IDS);
+app.use(express.json({ limit: '10kb' }));
+// Data sanitization against XSS
+app.use(xss());
+const limiter = rateLimit({
+	max: 100,
+	windowMs: 60 * 60 * 1000,
+	message: 'Too many requests from this IP, please try again in an hour!',
+});
+app.use(limiter);
 app.use('/', router);
-
 router.use(
 	bodyParser.urlencoded({
 		extended: true,

@@ -13,11 +13,11 @@ exports.BatchWriter = async (data, formData, sheetIndexes) => {
 		formData.phoneNo,
 	];
 	const colors = [
-		[0.0, 0.0, 0.7], //Blue
 		[0.5, 0.5, 0.5], //Grey
-		[0.0, 0.0, 0.7], //Blue
 		[0.5, 0.5, 0.5], //Grey
-		[0.0, 0.0, 0.7], //Blue
+		[0.5, 0.5, 0.5], //Grey
+		[0.5, 0.5, 0.5], //Grey
+		[0.5, 0.5, 0.5], //Grey
 	];
 	const child = {
 		rows: [
