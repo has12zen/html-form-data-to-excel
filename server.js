@@ -35,6 +35,7 @@ router.get('/', function (req, res) {
 
 router.post('/submit', async function (req, res) {
 	try {
+		if (req.body.options === undefined) throw new Error('NO Option defined');
 		await BatchWriter(gsrun(gClient), req.body, sheetIndexes);
 		res.sendFile('success.html', { root: __dirname });
 	} catch (e) {
