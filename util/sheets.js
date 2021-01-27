@@ -66,7 +66,6 @@ exports.BatchWriter = async (data, formData, sheetIndexes) => {
 		},
 		(err, resp) => {
 			if (err) throw err;
-			console.log(resp.data);
 		}
 	);
 };

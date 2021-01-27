@@ -4,7 +4,7 @@ const app = express(); //step 03 : create express app
 const bodyParser = require('body-parser');
 const xss = require('xss-clean');
 const rateLimit = require('express-rate-limit');
-const { BatchWriter } = require('./sheets');
+const { BatchWriter } = require('./util/sheets');
 
 if (process.env.NODE_ENV !== 'production') {
 	const { config } = require('dotenv');
@@ -40,17 +40,17 @@ router.use(
 
 router.get('/', function (req, res) {
 	// console.log(res);
-	res.sendFile('submit.html', { root: __dirname });
+	res.sendFile('submit.html', { root: __dirname + '/html' });
 });
 
 router.post('/submit', async function (req, res) {
 	try {
 		if (req.body.options === undefined) throw new Error('NO Option defined');
 		await BatchWriter(gsrun(gClient), req.body, sheetIndexes);
-		res.sendFile('success.html', { root: __dirname });
+		res.sendFile('success.html', { root: __dirname + '/html' });
 	} catch (e) {
 		console.log(e);
-		res.sendFile('error.html', { root: __dirname });
+		res.sendFile('error.html', { root: __dirname + '/html' });
 	}
 });
 
